@@ -1,9 +1,12 @@
+# Author: Albert Luna
+# Copying of this code is prohibited.
+# Github: https://github.com/A-Luna05
+
 from tkinter import *
 import webbrowser
 from PIL import Image, ImageTk
 import requests
 import io
-
 from rssReader import NewsCollection
 global photoList
 photoList = []

@@ -1,3 +1,6 @@
+# Author: Albert Luna
+# Copying of this code is prohibited.
+# Github: https://github.com/A-Luna05
 from newspaper import Article
 class articleObject(Article):
 
