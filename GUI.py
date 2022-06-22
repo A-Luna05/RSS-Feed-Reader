@@ -43,19 +43,18 @@ class newsAggregate(Tk):
         self.change_feed(0)
 
     def change_feed(self,direction):
-        photoList.clear()
         if direction == 0:
             self.articleCursor = 0
             self.articlesFrame1.grid(column=1,row=0)
             self.articlesFrame2.grid(column=2,row=0)
         elif direction == 2:
             self.currentPage = self.currentPage + 1
-        elif direction == 1 and self.articleCursor >= 8:
+        elif direction == 1 and self.articleCursor > 8:
             self.currentPage = self.currentPage - 1
             self.articleCursor = self.articleCursor - 16
         else:
             return
-
+        photoList.clear()
         for x in range(8):
             try:
                 articleNum = self.articleCursor
@@ -101,7 +100,8 @@ class newsAggregate(Tk):
     def addNewFeed(self,name,url):
         self.newsCollection.addFeed(name,url)
         self.top.destroy()
-        self.pageCount = 1 + len(self.newsCollection.postList)/8     
+        self.pageCount = 1 + len(self.newsCollection.postList)/8
+        self.currentPage = 1    
         self.change_feed(0)
 
 def callback(url):
