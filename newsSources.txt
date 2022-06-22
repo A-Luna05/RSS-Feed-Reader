@@ -1,0 +1,3 @@
+New York Times,https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+CNN,http://rss.cnn.com/rss/cnn_topstories.rss
+BBC,http://feeds.bbci.co.uk/news/rss.xml
