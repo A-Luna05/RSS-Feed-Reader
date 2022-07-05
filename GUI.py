@@ -8,6 +8,7 @@ from PIL import Image, ImageTk
 import requests
 import io
 from rssReader import NewsCollection
+import threading
 global photoList
 photoList = []
 
@@ -17,6 +18,7 @@ class newsAggregate(Tk):
         self.title('Reader')
         self.newsCollection = NewsCollection()
         self.articleCursor = 0
+        self.loadedArticles = 8
         self.articleTotal = len(self.newsCollection.postList) 
         self.articleList = []  
         self.currentPage = 1 
@@ -103,6 +105,15 @@ class newsAggregate(Tk):
         self.pageCount = 1 + len(self.newsCollection.postList)/8
         self.currentPage = 1    
         self.change_feed(0)
+
+    def loadRest(self):
+        self.newsCollection.postList[self.loadedArticles].getInfo()
+        print("loaded" + str(self.loadedArticles))
+        self.loadedArticles = self.loadedArticles + 1
+        if self.loadedArticles < len(self.newsCollection.postList):
+            self.loadRest()
+        else:
+            return
 
 def callback(url):
     webbrowser.open_new_tab(url)
