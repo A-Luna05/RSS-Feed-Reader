@@ -4,6 +4,8 @@ as well as scrapes the articles within to display in a GUI.
 
 The project uses some libraries that are found in the Requirements.txt file.
 
+Prior to running the program please open command prompt, move to the programs folder, and run pip install -r requirements.txt.
+
 Run the RunMe.py file to run the program.
 
 Running the program will open up a GUI, that will display a page of news articles coming from the sources stored in the newsSources.txt File
